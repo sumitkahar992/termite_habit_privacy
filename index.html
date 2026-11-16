@@ -1,145 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Habit Tracker</title>
+    <title>Privacy Policy - Termite Habit Tracker</title>
     <style>
+        :root {
+            --primary: #1a73e8;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border: #dadce0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #8ab4f8;
+                --text: #e8eaed;
+                --text-secondary: #9aa0a6;
+                --bg: #202124;
+                --bg-secondary: #303134;
+                --border: #5f6368;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 20px;
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 40px 20px;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
+
         h1 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: var(--text);
         }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
         h2 {
-            margin-top: 30px;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 5px;
+            font-size: 1.25rem;
+            margin: 32px 0 16px;
+            color: var(--text);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
         }
+
+        h3 {
+            font-size: 1.1rem;
+            margin: 20px 0 12px;
+            color: var(--text);
+        }
+
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            color: var(--text);
         }
-        ul {
-            margin-bottom: 15px;
-            padding-left: 20px;
+
+        ul,
+        ol {
+            margin: 0 0 16px 24px;
         }
+
         li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--text);
         }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
         }
-        .contact-info {
-            background-color: #e8f4f8;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            border-radius: 4px;
-            margin-top: 20px;
+
+        a:hover {
+            text-decoration: underline;
         }
-        .date {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 30px;
+
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-box {
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 24px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+        }
+
+        .contact-box strong {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--bg-secondary);
+            text-decoration: none;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        .badge-trader {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            background: #e8f0fe;
+            color: #1a73e8;
+            margin-bottom: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .badge-trader {
+                background: #1e3a5f;
+                color: #8ab4f8;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
+        <nav class="nav-links">
+            <a href="https://sumitkahar992.github.io/termite_habit_termsofuse/">Terms of Service</a>
+            <a href="https://sumitkahar992.github.io/termite_habit_privacy/" class="active">Privacy Policy</a>
+        </nav>
+
         <h1>Privacy Policy</h1>
-        <p class="date">Last Updated: March 3, 2026</p>
+        <p class="last-updated">Last Updated: November 16, 2026</p>
 
-        <h2>1. Overview</h2>
-        <p>Welcome to our Termite Habit Tracker application ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have full control over your data. This Privacy Policy outlines how your information is handled when you use our mobile application, including our core features, subscription management, and third-party integrations.</p>
-
-        <h2>2. How the App Works</h2>
-        <p>Our app is designed as an offline-first tool to help you build and maintain positive routines. It allows you to create habits, track your daily check-ins, view performance statistics, configure home screen widgets, and securely backup or restore your progress via JSON files using Android's built-in sharing mechanisms.</p>
-
-        <h2>3. Data Storage</h2>
-        <p>We believe your data belongs to you. To ensure maximum privacy:</p>
-        <ul>
-            <li><strong>Local Storage:</strong> All your core habit data, check-ins, statistics, and application preferences are stored locally on your device using internal SQLite databases and local preference files.</li>
-            <li><strong>No Cloud Sync:</strong> We do not automatically sync, upload, or transmit your habit data to our servers.</li>
-            <li><strong>Manual Backups:</strong> If you choose to use the backup feature, the app generates a local file on your device. You are responsible for where you store or share this file (e.g., Google Drive, Email) using the standard Android Share Sheet.</li>
-        </ul>
-
-        <h2>4. Information Collection</h2>
-        <p>While the core functionality operates offline, certain non-personal and technical information is collected to support essential app operations, monetization, and analytics:</p>
-        <ul>
-            <li><strong>Device Information:</strong> We may collect generic device details such as OS version, device model, and language preferences to optimize performance.</li>
-            <li><strong>Usage Data:</strong> Anonymous usage statistics regarding feature interactions may be collected to help us improve the user experience.</li>
-            <li><strong>Purchase History:</strong> If you opt for premium features, we collect transactional data via our subscription manager.</li>
-        </ul>
-
-        <h2>5. What We Do Not Collect</h2>
-        <p>To respect your privacy, we explicitly <strong>do not</strong> collect or transmit:</p>
-        <ul>
-            <li>Personally Identifiable Information (PII) such as your name, email address, phone number, or physical address.</li>
-            <li>The specific names, notes, or details of the habits you are tracking.</li>
-            <li>Precise or approximate geographical location data.</li>
-            <li>Health or biometric data.</li>
-        </ul>
-
-        <h2>6. Permissions</h2>
-        <p>To function correctly, the app requests the following Android system permissions:</p>
-        <ul>
-            <li><strong>Notifications (POST_NOTIFICATIONS):</strong> Required to send you timely reminders for your scheduled habits.</li>
-            <li><strong>Alarms (SCHEDULE_EXACT_ALARM):</strong> Used to trigger precise, time-sensitive habit reminders and notifications.</li>
-            <li><strong>Boot Completed (RECEIVE_BOOT_COMPLETED):</strong> Allows the app to silently reschedule your habit reminders and refresh home screen widgets after your device restarts.</li>
-        </ul>
-
-        <h2>7. Third-Party Services</h2>
-        <p>We partner with selected third-party services to provide necessary infrastructure, analytics, and advertising. These providers have their own Privacy Policies addressing how they use such information:</p>
-        <ul>
-            <li><strong>Google Play Services:</strong> Used for core Android integrations and billing framework functionality.</li>
-            <li><strong>Crashlytics/Analytics:</strong> Used to monitor app stability and anonymously track crashes to help us fix bugs promptly.</li>
-        </ul>
-
-        <h2>8. RevenueCat Paywall & Subscriptions</h2>
-        <p>To manage our in-app purchases and auto-renewable subscriptions, we use a third-party service called <strong>RevenueCat</strong>.</p>
-        <ul>
-            <li><strong>Subscription Management:</strong> RevenueCat acts as the backend for our paywall, validating your subscription status across your devices.</li>
-            <li><strong>Data Handled by RevenueCat:</strong> RevenueCat generates an anonymous App User ID to associate with your purchase history. They do not have access to your personal identity, habit data, or credit card information. All payment processing is securely handled entirely by the Google Play Store.</li>
-            <li><strong>Managing Subscriptions:</strong> You can manage, upgrade, or cancel your auto-renewable subscriptions at any time directly through your Google Play Store account settings.</li>
-        </ul>
-
-        <h2>9. Advertising</h2>
-        <p>To support the development of our free tier, the app may display advertisements served by third-party ad networks (such as Google AdMob).</p>
-        <ul>
-            <li><strong>Ad Identifiers:</strong> These ad networks may use your device's unique Advertising ID and cookies to serve personalized or non-personalized ads based on your consent and device settings.</li>
-            <li><strong>Opting Out:</strong> You can opt out of personalized advertising by adjusting your device settings (e.g., navigating to Settings > Privacy > Ads on your Android device and resetting your Advertising ID or opting out of ad personalization).</li>
-        </ul>
-
-        <h2>10. Security</h2>
-        <p>We prioritize the security of your data. Since your habit information remains locally on your device, it is protected by Android's application sandbox and full-disk encryption (on supported devices). However, no method of electronic storage or transmission over the internet is 100% secure. Please ensure your device is protected with a secure lock screen (PIN, password, or biometric lock).</p>
-
-        <h2>11. Legal Compliance</h2>
-        <p>Depending on your region, you may have specific rights regarding your data:</p>
-        <ul>
-            <li><strong>GDPR (Europe) & UK GDPR:</strong> We operate on a data-minimization principle. Because we do not collect personal data on our servers, data deletion requests regarding your habits can be fulfilled simply by uninstalling the app. For ad personalization, consent is managed via standardized consent management platforms (CMPs) within the app.</li>
-            <li><strong>CCPA (California):</strong> We do not "sell" your personal information. Ad networks may collect anonymous identifiers as detailed in the Advertising section.</li>
-            <li><strong>Children's Privacy (COPPA):</strong> Our application is not directed at children under the age of 13, and we do not knowingly collect personal information from children.</li>
-        </ul>
-
-        <h2>12. Contact Us</h2>
-        <div class="contact-info">
-            <p>If you have any questions, concerns, or suggestions regarding this Privacy Policy or our data practices, please reach out to us.</p>
-            <p><strong>Email:</strong> sumitkahar083@gmail.com</p>
-            <p><strong>Phone:</strong> +91 9151382162</p>
+        <div class="highlight-box">
+            <p><strong>Termite</strong> (also known as <strong>Termite Habit Tracker</strong>, package
+                <code>io.github.termite</code>) respects your privacy. This Privacy Policy explains how data is stored
+                locally on your device, what pseudonymous technical and purchase data is processed by third-party SDKs,
+                and your privacy rights under applicable laws.</p>
         </div>
+
+        <h2>1. Information We Collect &amp; How Storage Works</h2>
+
+        <h3>1.1 Local-First Storage on Your Device</h3>
+        <p>Termite is designed as an offline-first habit tracker. All habits, daily check-ins, timer sessions,
+            statistics, and application preferences are stored locally on your device using Android's internal Room
+            (SQLite) database and DataStore preference files.</p>
+        <ul>
+            <li><strong>No User Accounts &amp; No Developer Cloud Servers:</strong> Termite does not require account
+                registration or sign-in, and we do not maintain developer-operated cloud servers that sync or store your
+                habit entries.</li>
+            <li><strong>Manual JSON Backups:</strong> If you use the Pro backup feature to export or import a JSON
+                backup file, the file is generated locally and handled via Android's system file picker or share sheet.
+                You control where exported backup files are saved or shared.</li>
+            <li><strong>Android System Auto Backup:</strong> Termite enables standard Android Auto Backup in its
+                application manifest so your local database and preferences can be preserved across device transfers or
+                reinstalls if you have Google device backup enabled in your Android settings. These backups are managed
+                by Android and your personal Google account settings, not by developer servers.</li>
+        </ul>
+
+        <h3>1.2 Information We Do Not Collect</h3>
+        <p>We do <strong>not</strong> collect, sell, or share:</p>
+        <ul>
+            <li>Direct personal contact details (such as your name, email address, phone number, or physical address)
+                inside the App.</li>
+            <li>The specific habit names, check-in records, notes, or schedules stored in your local database.</li>
+            <li>Precise or approximate GPS location, contacts, camera/microphone recordings, or biometric data.</li>
+        </ul>
+
+        <h3>1.3 Data Processed by Third-Party Services</h3>
+        <p>To support in-app purchases, crash diagnostics, basic app analytics, and in-app ratings, Termite integrates the
+            following third-party services:</p>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+                <th>Data Processed</th>
+            </tr>
+            <tr>
+                <td><strong>Google Play Billing &amp; In-App Review</strong></td>
+                <td>Payment processing for subscriptions and lifetime upgrades, plus native in-app rating prompts</td>
+                <td>Purchase status, order/transaction verification, and Play Store rating availability handled by Google
+                    Play Services (we never see your credit card or payment details)</td>
+            </tr>
+            <tr>
+                <td><strong>RevenueCat</strong></td>
+                <td>Subscription and Pro entitlement validation across plans (Monthly, Yearly, Lifetime, Free Trial)</td>
+                <td>Pseudonymous RevenueCat App User ID, purchase receipts/tokens, and active entitlement status</td>
+            </tr>
+            <tr>
+                <td><strong>Firebase Crashlytics</strong></td>
+                <td>Crash reporting and app stability diagnostics</td>
+                <td>Crash traces, stack dumps, device model, Android OS version, app version, and a pseudonymous
+                    Crashlytics installation ID</td>
+            </tr>
+            <tr>
+                <td><strong>Firebase Analytics</strong></td>
+                <td>Aggregated app usage, session, and stability telemetry (with Advertising ID collection disabled)</td>
+                <td>Pseudonymous Firebase app-instance ID, basic app session/lifecycle events, device model, OS version,
+                    and general region/language metadata</td>
+            </tr>
+        </table>
+
+        <h2>2. Permissions We Request</h2>
+        <p>Termite requests only the Android permissions needed for its core features and SDK operations:</p>
+        <ul>
+            <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>):</strong> Required to display scheduled habit
+                reminders and timer completion alerts.</li>
+            <li><strong>Exact Alarms (<code>SCHEDULE_EXACT_ALARM</code>):</strong> Used to trigger time-sensitive habit
+                reminders and focus timer alerts at your chosen times.</li>
+            <li><strong>Boot Completed (<code>RECEIVE_BOOT_COMPLETED</code>):</strong> Allows the App to reschedule your
+                habit reminders and refresh home screen widgets after a device restart, timezone/time change, or app
+                update.</li>
+            <li><strong>Network Access (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>):</strong> Required to
+                verify purchases via Google Play Billing and RevenueCat, and to transmit pseudonymous Crashlytics and
+                Analytics diagnostics.</li>
+            <li><strong>Google Play Billing (<code>com.android.vending.BILLING</code>):</strong> Enables in-app
+                subscriptions and one-time Lifetime purchases through Google Play.</li>
+            <li><strong>Background Execution (<code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>):</strong>
+                Included via AndroidX WorkManager for reliable background widget refreshes and daily habit status
+                updates.</li>
+        </ul>
+
+        <h2>3. Advertising &amp; Advertising ID</h2>
+        <p><strong>No Third-Party Ads:</strong> Termite displays <strong>no third-party advertisements</strong> and does
+            not integrate AdMob or any advertising SDK. We explicitly remove the <code>com.google.android.gms.permission.AD_ID</code>
+            permission from the merged application manifest and disable Advertising ID collection in Firebase Analytics.</p>
+
+        <h2>4. Diagnostics, Analytics &amp; Purchase Data</h2>
+        <p>Diagnostic logs from Firebase Crashlytics, session telemetry from Firebase Analytics, and entitlement records
+            from RevenueCat use <strong>pseudonymous</strong> installation or app-instance identifiers rather than your
+            real-world identity. We use this information solely to fix crashes, maintain app reliability, and unlock your
+            purchased Termite PRO entitlements.</p>
+
+        <h2>5. Data Storage, Retention, and Deletion</h2>
+        <p>You can delete all locally stored habit data at any time by clearing App storage via <em>Android Settings &gt;
+            Apps &gt; Termite &gt; Storage &amp; cache &gt; Clear storage</em> or by uninstalling the App. If Android
+            system Auto Backup is enabled on your device, you can manage or delete system backups in your Google Drive /
+            Android backup settings.</p>
+        <p><strong>Retention &amp; Support Requests:</strong> Termite does not offer user accounts. Pseudonymous
+            crash/analytics telemetry is retained by Firebase according to standard diagnostic retention windows, and
+            Google Play / RevenueCat retain transaction records as needed to restore active entitlements and comply with
+            statutory tax and financial recordkeeping laws. For privacy inquiries or requests concerning pseudonymous
+            records, contact <a href="mailto:sumitkahar073@gmail.com">sumitkahar073@gmail.com</a>. Verified requests are
+            processed promptly and within 30 days.</p>
+
+        <h2>6. Data Security</h2>
+        <p>Your local habit database and preferences are protected by Android's application sandbox and device-level
+            encryption. Network communications with Google Play, RevenueCat, and Firebase are encrypted in transit using
+            HTTPS/TLS. Please protect your device with a strong screen lock (PIN, password, or biometric lock).</p>
+
+        <h2>7. Children's Privacy</h2>
+        <p>Termite is not directed at children under 13 years of age (or the applicable digital age of consent in your
+            jurisdiction). We do not knowingly collect personal information from children. If you believe a child has
+            provided personal information to us, please contact <a
+                href="mailto:sumitkahar073@gmail.com">sumitkahar073@gmail.com</a> so we can promptly delete it.</p>
+
+        <h2>8. Third-Party Policies</h2>
+        <p>Integrated third-party services operate under their own privacy policies:</p>
+        <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+                (Google Play Services, Billing &amp; In-App Review)</li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy
+                    and Security Documentation</a> (Firebase Crashlytics &amp; Firebase Analytics)</li>
+            <li><a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">RevenueCat Privacy
+                    Policy</a> (Subscription &amp; Entitlement Management)</li>
+        </ul>
+
+        <h2>9. Your Privacy Rights</h2>
+        <p>Depending on your location (including the EEA, the United Kingdom, and California), you may have statutory
+            rights to access, correct, export, or delete your personal data, restrict or object to certain processing,
+            withdraw consent for optional runtime Android permissions in device settings, and <strong>lodge a complaint
+                with your local data protection supervisory authority</strong>. We do not sell or share your personal
+            information for cross-context behavioral advertising (CCPA/CPRA).</p>
+
+        <div class="badge-trader">EU Digital Services Act (DSA) &amp; GDPR Compliance</div>
+        <h2>10. Legal Compliance, Data Controller &amp; Legal Bases</h2>
+        <p>This Privacy Policy is designed to comply with the <strong>GDPR / UK GDPR</strong> (Regulation (EU)
+            2016/679), the <strong>EU Digital Services Act (DSA)</strong> (Regulation (EU) 2022/2065), <strong>UK
+                Digital Markets, Competition and Consumers Act 2024</strong> consumer transparency rules,
+            <strong>CCPA / CPRA</strong>, and Google Play Developer Program Policies.</p>
+
+        <h3>10.1 Data Controller</h3>
+        <p>The Data Controller responsible for data processing in connection with Termite (<code>io.github.termite</code>)
+            is <strong>Sumit Kahar</strong>, acting as an individual commercial developer / <strong>Trader</strong>.</p>
+
+        <h3>10.2 Legal Bases for Processing (GDPR Article 6)</h3>
+        <ul>
+            <li><strong>Performance of a Contract (Art. 6(1)(b)):</strong> Validating purchases, free trials, and
+                entitlements via Google Play Billing and RevenueCat.</li>
+            <li><strong>Legitimate Interests (Art. 6(1)(f)):</strong> Diagnosing crashes, maintaining app stability, and
+                preventing fraud/entitlement abuse using pseudonymous identifiers.</li>
+            <li><strong>Compliance with Legal Obligations (Art. 6(1)(c)):</strong> Fulfilling EU DSA, consumer
+                protection, and tax/accounting recordkeeping obligations.</li>
+            <li><strong>Consent (Art. 6(1)(a)):</strong> Optional runtime device permissions granted by you in Android
+                (such as notifications and exact alarm access).</li>
+        </ul>
+
+        <h3>10.3 International Transfers &amp; Retention</h3>
+        <p>Our third-party infrastructure providers (Google / Firebase and RevenueCat) may process pseudonymous technical
+            and purchase data in countries outside your jurisdiction using legally recognized safeguards, such as Standard
+            Contractual Clauses (SCCs) or applicable adequacy frameworks. We retain data only for as long as necessary to
+            provide the App, restore purchases, or satisfy legal obligations.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time by posting the revised version on this page with an
+            updated "Last Updated" date.</p>
+
+        <h2>12. Contact Us &amp; Legal Notice (Data Controller)</h2>
+        <p>To ask questions, exercise statutory privacy rights, or submit data inquiries, contact the Data Controller /
+            Trader:</p>
+
+        <div class="contact-box">
+            <p><strong>App Name:</strong> Termite (Termite Habit Tracker)</p>
+            <p><strong>Data Controller / Trader:</strong> Sumit Kahar (Individual Commercial Developer / Trader)</p>
+            <p><strong>Trader Status:</strong> Declared Trader under EU Digital Services Act (Regulation (EU) 2022/2065)</p>
+            <p><strong>Legal Address:</strong> 438, Kaana Paar, Ramnagar, Dhani Bazar, Pharenda, Maharajganj - 273161,
+                India</p>
+            <p><strong>Telephone:</strong> <a href="tel:+919151382162">+91 9151382162</a></p>
+            <p><strong>Support Email:</strong> <a href="mailto:sumitkahar073@gmail.com">sumitkahar073@gmail.com</a></p>
+            <p><strong>Package Name:</strong> io.github.termite</p>
+            <p><strong>Terms of Service:</strong> <a
+                    href="https://sumitkahar992.github.io/termite_habit_termsofuse/">View Terms of Service</a></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Termite Habit Tracker — Sumit Kahar. All rights reserved.</p>
+        </footer>
     </div>
 </body>
+
 </html>
